@@ -1,0 +1,72 @@
+<%- include('../header') %>
+
+<div class="page-wrapper">
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Edit SubCategory</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <form class="form-horizontal" action="/category/update-category/<%= subCategory._id %>" method="POST" enctype="multipart/form-data">
+                        <div class="card-body">
+                            <h4 class="card-title">SubCategory Info</h4>
+
+                            <div class="form-group row">
+                                <label for="subCategory" class="col-sm-3 text-right control-label col-form-label">SubCategory Name</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="subCategory" value="<%= subCategory.subCategory %>" placeholder="Enter SubCategory Name">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="category" class="col-sm-3 text-right control-label col-form-label">Select Category</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" name="categoryId">
+                                        <% categories.forEach(cat => { %>
+                                            <option value="<%= cat._id %>" <%= subCategory.categoryId == cat._id ? "selected" : "" %>>
+                                                <%= cat.category %>
+                                            </option>
+                                        <% }); %>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-3 text-right control-label col-form-label">Upload New Image</label>
+                                <div class="col-md-9">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="subCategoryImage">
+                                        <label class="custom-file-label">Choose file...</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="border-top">
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-success">Update SubCategory</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../footer') %>

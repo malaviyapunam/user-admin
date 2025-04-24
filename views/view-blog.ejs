@@ -1,0 +1,52 @@
+<%- include('header') %>
+
+<div class="page-wrapper" style="background: #f4f6f9; min-height: 100vh; padding: 40px 0;">
+
+  <div class="container-fluid">
+
+    <!-- Filter Section (Categories) -->
+    <div class="filter-section mb-4 p-4" style="background: linear-gradient(135deg, #f0f0f0, #ffffff); 
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); border-radius: 12px; transition: 0.3s ease-in-out;">
+  
+      <div class="d-flex flex-wrap justify-content-center gap-2">
+        <% const categories = ["All", "Technology", "Health", "Education", "Business","fashion"]; %>
+        <% categories.forEach(cat => { %>
+          <a href="/blogs/view-blogs?category=<%= cat === 'All' ? '' : cat %>"
+             class="btn <%= selectedCategory === cat ? 'btn-success' : 'btn-outline-success' %>"
+             style="padding: 10px 15px; font-size: 15px; border-radius: 8px; 
+                    transition: 0.3s; min-width: 120px; margin: 0px 10px;">
+            <%= cat %>
+          </a>
+        <% }) %>
+      </div>
+    </div>
+
+    <!-- Add Blog Button -->
+    <div class="mb-4 text-center">
+      <a href="/blogs/add-blog" class="btn btn-success" style="font-size: 18px; padding: 10px 20px; border-radius: 8px;">
+        Add New Blog
+      </a>
+    </div>
+
+    <!-- Blog List -->
+    <div class="row">
+      <% blogs.forEach(blog => { %>
+        <div class="col-md-4 mb-4">
+          <div class="card" style="border-radius: 12px; box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);">
+            <img class="card-img-top" src="<%= blog.image %>" alt="Blog Image" style="height: 200px; object-fit: cover; border-top-left-radius: 12px; border-top-right-radius: 12px;">
+            <div class="card-body">
+              <h5 class="card-title"><%= blog.title %></h5>
+              <p class="card-text">Author: <%= blog.author %></p>
+              <p class="card-text" style="font-size: 14px; color: #777;">Category: <%= blog.category %></p>
+              <a href="/blogs/single-blog/<%= blog._id %>" class="btn btn-primary">View Details</a>
+              <a href="/blogs/delete-blog/<%= blog._id %>" class="btn btn-danger btn-sm">Delete</a>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+
+  </div>
+</div>
+
+<%- include('footer') %>

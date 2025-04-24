@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="//images-static.naikaa.com/media/wysiwyg/uiTools/2024-3/beauty.png" type="image/x-icon">
+    <title>Buy Cosmetics Products & Beauty Products Online in India at Best Price | Nykaa</title>
+</head>
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa;">
+
+    
+
+    <!-- Cart Content -->
+    <div style="max-width: 1140px; margin: 0 auto; padding: 16px;">
+        <h3 style="color: #111;">Your Shopping Cart</h3>
+        <hr>
+        <% if (cart.length === 0) { %>
+            <div style="padding: 1rem; margin-bottom: 1rem; border-radius: 0.25rem; background-color: #fce4ec; color: #d63384; font-size: 1rem;">
+                Your cart is empty.
+            </div>
+        <% } else { %>
+            <% cart.forEach(item => { %>
+                <div style="background-color: white; padding: 20px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex;">
+                    <img src="<%= item.image %>" alt="<%= item.title %>" style="width: 120px; height: 120px; object-fit: contain; margin-right: 20px;">
+                    <div>
+                        <h5 style="margin: 0; font-weight: bold; color: #d63384;"><%= item.title %></h5>
+                        <p style="margin: 5px 0;">Price: ₹<span style="color: #28a745; font-weight: bold;"><%= item.price %></span></p>
+                        <p style="margin: 5px 0;">Quantity: 1</p>
+                        <button style="background-color: #ff6f61; color: white; border-radius: 30px; padding: 5px 15px; font-size: 0.875rem; cursor: pointer;">Remove</button>
+                    </div>
+                </div>
+            <% }) %>
+        <% } %>
+
+        <a href="/user" style="background-color: #fa8ebb; color: white; border-radius: 30px; padding: 10px 20px; font-weight: bold; text-decoration: none;">Continue Shopping</a>
+    </div>
+
+</body>
+</html>

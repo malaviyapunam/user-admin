@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>User Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body style="margin: 0; padding: 0; background-color: #fff0f5; font-family: 'Segoe UI', sans-serif;">
+
+  <% if (success && success.length > 0) { %>
+    <div style="max-width: 600px; margin: 20px auto; padding: 10px 15px; background-color: #d1e7dd; color: #0f5132; border-radius: 6px; border: 1px solid #badbcc; position: relative;">
+      <%= success %>
+      <button style="position: absolute; top: 8px; right: 12px; background: none; border: none; font-size: 20px; cursor: pointer;" onclick="this.parentElement.style.display='none'">&times;</button>
+    </div>
+  <% } %>
+
+  <div style="max-width: 500px; margin: 60px auto; padding: 30px; background-color: #ffffff; border-radius: 20px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); box-sizing: border-box;">
+    
+    <div style="text-align: center; margin-bottom: 25px;">
+      <h2 style="margin: 0; font-size: 28px; font-weight: 600;">User Profile</h2>
+    </div>
+
+    <div style="margin-bottom: 15px; font-size: 1.1rem;">
+      <i class="fas fa-user" style="margin-right: 8px;"></i><strong>Name:</strong> <%= user.username %>
+    </div>
+
+    <div style="margin-bottom: 15px; font-size: 1.1rem;">
+      <i class="fas fa-envelope" style="margin-right: 8px;"></i><strong>Email:</strong> <%= user.email %>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="/user"
+         style="display: inline-block; padding: 10px 20px; background-color: #ff66a3; color: white; text-decoration: none; border-radius: 8px; margin-right: 10px; transition: 0.3s;">
+        ← Back To List
+      </a>
+
+      <a href="/user/change-password"
+         style="display: inline-block; padding: 10px 20px; background-color: transparent; color: #6c757d; border: 2px solid #6c757d; text-decoration: none; border-radius: 8px; transition: 0.3s;">
+        <i class="fas fa-key" style="margin-right: 5px;"></i>Change Password
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>

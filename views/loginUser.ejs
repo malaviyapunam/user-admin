@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sign In - PinkTheme</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body style="background: linear-gradient(to right, #ffe6f0, #ffc0cb); font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0;">
+
+  <div style="min-height: 100vh; display: flex; justify-content: center; align-items: center;">
+    <div style="background-color: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 0 20px rgba(255, 20, 147, 0.2); width: 100%; max-width: 420px; box-sizing: border-box;">
+
+      <h2 style="text-align: center; color: #d63384; font-weight: 700; margin-bottom: 30px;">Sign in to nykaa</h2>
+
+      <% if (typeof messages !== 'undefined' && messages.error && messages.error.length > 0) { %>
+        <div style="background-color: #f8d7da; color: #842029; padding: 10px; border-radius: 10px; text-align: center; margin-bottom: 20px;">
+          <%= messages.error[0] %>
+        </div>
+      <% } %>
+
+
+      <form action="/user/loginUser" method="POST">
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; margin-bottom: 5px;">Username or Email</label>
+          <input type="email" name="email" required placeholder="Enter your email"
+                 style="width: 100%; padding: 10px; border-radius: 10px; border: 2px solid #ffc0cb; box-sizing: border-box;">
+        </div>
+
+        <div style="margin-bottom: 16px;">
+          <label style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+            <span>Password</span>
+            <a href="/user/forgot-password" style="color: #0d6efd; text-decoration: none;">Forgot?</a>
+          </label>
+          <input type="password" name="password" required placeholder="Enter your password"
+                 style="width: 100%; padding: 10px; border-radius: 10px; border: 2px solid #ffc0cb; box-sizing: border-box;">
+        </div>
+
+        <button type="submit"
+                style="width: 100%; padding: 10px; background-color: #ff69b4; color: white; font-weight: 500; border: none; border-radius: 25px; cursor: pointer; transition: 0.3s;">
+          Sign In
+        </button>
+      </form>
+
+      <p style="text-align: center; margin-top: 20px;">Don't have an account? <a href="/user/register" style="color: #d63384;">Sign up</a></p>
+    </div>
+  </div>
+</body>
+</html>

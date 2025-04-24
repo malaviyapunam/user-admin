@@ -1,0 +1,26 @@
+<%- include('header') %>
+
+<div class="page-wrapper" style="background: #f4f6f9; min-height: 100vh; padding: 40px 0;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <div class="card" style="border-radius: 12px; box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);">
+          <img class="card-img-top" src="<%= blog.image %>" alt="<%= blog.title %>" style="height: 300px; object-fit: cover; border-top-left-radius: 12px; border-top-right-radius: 12px;">
+          <div class="card-body">
+            <h3 class="card-title text-center"><%= blog.title %></h3>
+            <p class="text-muted text-center">By <%= blog.author %> | Category: <%= blog.category %></p>
+            <hr>
+            <p class="card-text"><%= blog.description %></p>
+
+            <div class="text-center mt-4">
+              <a href="/blogs/edit-blog/<%= blog._id %>" class="btn btn-warning">Edit Blog</a>
+              <a href="/blogs/delete-blog/<%= blog._id %>" class="btn btn-danger">Delete Blog</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('footer') %>

@@ -1,0 +1,56 @@
+<%- include('header') %>
+
+<div class="page-wrapper" style="background: #f4f6f9; min-height: 100vh; padding: 40px 0;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <div class="card" style="border-radius: 12px; box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);">
+          <div class="card-body">
+            <h4 class="card-title text-center">Edit Blog</h4>
+            <form action="/blogs/edit-blog/<%= blog._id %>" method="POST" enctype="multipart/form-data">
+              
+              <div class="form-group">
+                <label for="title" class="control-label">Title</label>
+                <input type="text" class="form-control" id="title" name="title" value="<%= blog.title %>" required>
+              </div>
+
+              <div class="form-group">
+                <label for="description" class="control-label">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="4" required><%= blog.description %></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="author" class="control-label">Author</label>
+                <input type="text" class="form-control" id="author" name="author" value="<%= blog.author %>" required>
+              </div>
+
+              <div class="form-group">
+                <label for="category" class="control-label">Category</label>
+                <select class="form-control" id="category" name="category" required>
+                  <option value="Technology" <%= blog.category === 'Technology' ? 'selected' : '' %>>Technology</option>
+                  <option value="Health" <%= blog.category === 'Health' ? 'selected' : '' %>>Health</option>
+                  <option value="Education" <%= blog.category === 'Education' ? 'selected' : '' %>>Education</option>
+                  <option value="Business" <%= blog.category === 'Business' ? 'selected' : '' %>>Business</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="image" class="control-label">Upload New Image</label>
+                <input type="file" class="form-control-file" id="image" name="image">
+                <div class="mt-2">
+                  <img src="<%= blog.image %>" alt="Blog Image" style="max-width: 150px; border-radius: 8px;">
+                </div>
+              </div>
+
+              <div class="text-center">
+                <button type="submit" class="btn btn-success">Update Blog</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('footer') %>
